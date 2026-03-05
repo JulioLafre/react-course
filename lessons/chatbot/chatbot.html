@@ -86,23 +86,24 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
+
+      function useAutoScroll(dependencies){
+        const containerRef = React.useRef(null);
+
+        React.useEffect(() => {
+          const containerElem = containerRef.current
+          if (containerElem){
+            containerElem.scrollTop = containerElem.scrollHeight;
+          }
+
+        }, [dependencies]) 
+
+        return containerRef
+      }
+
       function ChatInput({chatMessages, setChatMessages}) {
         const [inputText, setInputText] = React.useState('');
         const [isLoading, setIsLoading] = React.useState(false)
-
-        function useAutoScroll(dependencies){
-          const containerRef = React.useRef(null);
-
-          React.useEffect(() => {
-            const containerElem = containerRef.current
-            if (containerElem){
-              containerElem.scrollTop = containerElem.scrollHeight;
-            }
-
-          }, [dependencies]) 
-
-          return containerRef
-        }
 
         function saveInputText(event) {
           setInputText(event.target.value)
