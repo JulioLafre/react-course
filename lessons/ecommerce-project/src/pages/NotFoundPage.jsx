@@ -1,10 +1,10 @@
 import { Header } from "../components/Header";
 import "./NotFoundPage.css";
 
-export function NotFoundPage() {
+export function NotFoundPage( {cart} ) {
     return (
         <>
-            <Header />
+            <Header cart={cart} />
             <div className="notfound-container">
                 <h1 className="notfound-title">404</h1>
                 <h2 className="notfound-subtitle">Página não encontrada</h2>
