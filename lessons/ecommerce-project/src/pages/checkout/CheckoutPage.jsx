@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { OrderSumary } from './OrderSummary'
 import { PaymentSummmary } from './PaymentSummary'
 
-export function CheckoutPage({ cart }) {
+export function CheckoutPage({ cart, loadCart }) {
     const [deliveryOptions, setDeliveryOptions] = useState([])
     const [paymentSummmary, setPaymentSummary] = useState(null)
 
@@ -18,7 +18,7 @@ export function CheckoutPage({ cart }) {
             setPaymentSummary(response.data) }
 
             fetchCheckoutData();
-    }, []);
+    }, [cart]);
 
     return (
         <>
@@ -32,9 +32,11 @@ export function CheckoutPage({ cart }) {
                     <OrderSumary 
                         cart={cart} 
                         deliveryOptions={deliveryOptions}
+                        loadCart={loadCart}
                     />
                     <PaymentSummmary 
                         paymentSummmary={paymentSummmary}
+                        loadCart={loadCart}
                     />
                 </div>
             </div>
