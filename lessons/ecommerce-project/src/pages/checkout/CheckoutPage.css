@@ -14,6 +14,11 @@
   margin-right: auto;
 }
 
+.update-quantity-input{
+  width: 50px;
+  opacity: 1;
+}
+
 .checkout-page .page-title {
   font-weight: 700;
   font-size: 22px;

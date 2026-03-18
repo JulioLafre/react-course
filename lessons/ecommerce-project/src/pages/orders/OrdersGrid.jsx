@@ -1,7 +1,7 @@
 import { OrderHead } from "./OrderHead"
 import { OrderDetailGrid } from "./OrderDetailGrid"
 
-export function OrdersGrid( {orders} ) {
+export function OrdersGrid( {orders, loadCart} ) {
     return (
         <div className="orders-grid">
             {orders.map((order) => {
@@ -10,7 +10,7 @@ export function OrdersGrid( {orders} ) {
 
                         <OrderHead order={order} />
 
-                        <OrderDetailGrid order={order} />
+                        <OrderDetailGrid order={order} loadCart={loadCart} />
                     </div>
                 )
             })}
